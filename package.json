@@ -1,0 +1,40 @@
+{
+    "name": "DefPros",
+    "description": "",
+    "version": "1.0.0",
+    "main": "index.html",
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch-poll": "npm run watch -- --watch-poll",
+        "hot": "NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "prod": "npm run production",
+        "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "start": "browser-sync start --server --files '**/*.css, **/*.html, **/*.js, !node_modules/**/*' --directory --port 8000 --browser 'Firefox Developer Edition'",
+        "//": "Hello! If you are having trouble running this command. Try changing Firefox Developer Edition to FirefoxDeveloperEdition",
+        "start:darwin:linux": "browser-sync start --server --files '**/*.css, **/*.html, **/*.js, !node_modules/**/*' --directory --port 8000 --browser 'Firefox Developer Edition'",
+        "css-deploy": "npm run css-build && npm run css-postcss",
+        "css-build": "node-sass _sass/main.scss css/main.css",
+        "css-postcss": "postcss --use autoprefixer --output css/main.css css/main.css",
+        "css-watch": "npm run css-build -- --watch",
+        "deploy": "npm run css-deploy && npm run js-build",
+        "js-build": "babel _javascript --out-dir lib",
+        "js-watch": "npm run js-build -- --watch"
+    },
+    "devDependencies": {
+        "autoprefixer": "^7.2.5",
+        "babel-cli": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "laravel-mix": "^2.0.0",
+        "node-sass": "^4.7.2",
+        "postcss-cli": "^4.1.1",
+        "purify-css": "^1.2.6",
+        "purifycss-webpack": "^0.7.0",
+        "run-script-os": "^1.0.3"
+    },
+    "dependencies": {
+        "bulma": "^0.6.2"
+    }
+}

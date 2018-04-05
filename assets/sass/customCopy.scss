@@ -1,0 +1,130 @@
+:root {
+  --yellow: #ffc600;
+  --black:  #000000;
+  --white:  #FFFFFF;
+  --red:    #B20000;
+  --orange: #FFA500;
+  --grey:   #272727;
+  --ltgrey: #d3d3d3;
+}
+html {
+  box-sizing: border-box;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: var(--ltgrey);
+  /* A system font stack so things load nice and quick! */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+body {
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.07);
+  background: var(--ltgrey);
+  font-size: 16px;
+  margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 5px 0;
+  font-weight: 900;
+}
+section {
+     margin-top: 30px;
+     &:first-of-type {
+      margin-top: 0;
+     }
+}
+.box {
+  background: var(--white);
+}
+.browse {
+  background: var(--orange);
+  color: var(--black);
+  font-size: 1rem;
+  width: 100%;
+}
+.is-round {
+  border-radius: 50%;
+}
+// LANDING PAGE
+.hero {
+     display: flex;
+     justify-content: center;
+     min-height: 400px;
+     background: var(--black) url(/assets/images/wall.jpg) repeat;
+     background-size: contain;
+     background-position: top center;
+     padding: 50px;
+     color: var(--white);
+     .title, .subtitle {
+  color: var(--white);
+}
+}
+.menu {
+     background: var(--black);
+}
+.menu button {
+  background: var(--orange);
+}
+.menu ul {
+    display: grid;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    align-self: center;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+.menu a {
+background: var(--orange);
+display: block;
+text-decoration: none;
+padding: 10px;
+text-align: center;
+color: var(--black);
+font-weight: 900;
+text-transform: uppercase;
+font-size: 20px;
+}
+[aria-controls = "menu-list"] {
+    display: none;
+}
+@media (max-width: 1000px) {
+    .menu {
+        order: -1;
+        perspective: 800px;    }
+    [aria-controls = "menu-list"] {
+    display: block;
+    margin-bottom: 10px;
+    }
+    .menu ul {
+        max-height: 0; /*used for the appearance and hiding of the nav bar for the transition*/
+        overflow: hidden;
+        transform: rotateX(90deg);
+        transition: all 0.5s;
+    }
+    [aria-expanded = "true"] ~ ul {
+        display: grid;
+        max-height: 500px;
+        transform: rotateX(0);
+    }
+    [aria-expanded = "false"] .close {
+        display: none;
+    }
+    [aria-expanded = "true"] .close {
+        display: inline-block;
+    }
+    [aria-expanded = "true"] .open {
+        display: none;
+    }
+}
+// CLIENTS
+
+
+// Contact
+#contact {
+  background: var(--orange);
+}
+
